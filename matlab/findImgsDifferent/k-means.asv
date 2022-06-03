@@ -1,0 +1,55 @@
+%-----Info
+%Author     sophia
+%Blog       http://blog.csdn.net/sophia_xw?viewmode=contents
+%Date       2017/4/6
+
+function k-means(matD)
+
+cptNum=2;
+[m,n]=size(matD);
+
+matNew=reshape(matD,m*n,1);%with column, size(matNew)=[m*n,1]
+cpt=unidrnd(m*n, 1,cptNum);
+
+ptSets=cell(cptNum,1);
+dis=repmat(matNew,1,cptNum)-repmat(matNew(cpt),m*n,1);
+[minDis, minIndex]=min(dis');
+indNew=minIndex';
+orNumber=1:m*n;
+for ia=1:cptNum
+    indNew==ia;
+    oneClass=indNew.*orNumber';
+    oneClass(oneClass==0)=[];
+    ptSets{ia}=oneClass;
+end
+
+figure(2)
+drawPic( x,y,cpts, 1, cpset, 'One-times' );
+title('One-times' );
+
+dis3  = distance( x, y, x(cpts), y(cpts));
+cpset3 = chooseClass( dis3 );
+cpts3  = updateCenter( cpset3, x, y );
+
+figure(3)
+drawPic( x,y,cpts3, 1,cpset3, 'Two-times' );
+title('Two-times');
+
+boolChange = cptChange( cpts, cpts3 );
+
+while(1)
+    if(boolChange==1)
+        dis4  = distance( x, y, x(cpts3), y(cpts3));
+        cpset4 = chooseClass( dis4 );
+        cpts4  = updateCenter( cpset4, x, y );
+        
+        boolChange = cptChange( cpts3, cpts4 );
+        cpts3=cpts4;
+        cpset3 =cpset4
+    else
+        figure(4)
+        drawPic( x, y, cpts3, 1, cpset3, 'Final-times' );
+        title('Final-times' );
+        break;
+    end
+end

@@ -20,15 +20,15 @@ void work(int id)
 int main(int argc, char* argv[])
 {
 	vector<thread> threads;
-	//´´½¨¶àÏß³Ì·ÃÎÊ¼ÆÊıÆ÷
+	//åˆ›å»ºå¤šçº¿ç¨‹è®¿é—®è®¡æ•°å™¨
 	for (int i = 0; i != 4; ++i)
-		//Ïß³Ì¹¤×÷º¯ÊıÓëÏß³Ì±ê¼Ç²ÎÊı
+		//çº¿ç¨‹å·¥ä½œå‡½æ•°ä¸çº¿ç¨‹æ ‡è®°å‚æ•°
 		threads.push_back(thread(work, i));
 	for (auto & th : threads)
 		th.join();
-	//×îÖÕµÄ¼ÆÊıÖµ
+	//æœ€ç»ˆçš„è®¡æ•°å€¼
 	cout << "final :" << Counter << endl;
-	//¹Û²ì¸÷Ïß³ÌµÄ¹¤×÷Ê±Ğò
+	//è§‚å¯Ÿå„çº¿ç¨‹çš„å·¥ä½œæ—¶åº
 	for (int i = 0; i < 400; i++)
 		cout << "[" << i << "]=" << order[i] << " ";
 	system("Pause");

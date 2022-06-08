@@ -3,14 +3,14 @@
 #include <windows.h>
 #include <string>
 #include <stdio.h>
-#include <atlstr.h>//CStringÀà±ØĞë°üº¬µÄÍ·ÎÄ¼ş
+#include <atlstr.h>//CStringç±»å¿…é¡»åŒ…å«çš„å¤´æ–‡ä»¶
 
 using namespace std;
 
 
 int main ()
 {
-	////²âÊÔÓëexeÔÚÍ¬Ò»ÎÄ¼ş¼ĞµÄexample.txtÎÄ¼şµÄ´óĞ¡¡£
+	////æµ‹è¯•ä¸exeåœ¨åŒä¸€æ–‡ä»¶å¤¹çš„example.txtæ–‡ä»¶çš„å¤§å°ã€‚
 //    const char * filename = "example.txt";
 //    long l,m;
 //    ifstream file(filename, ios::in|ios::binary);
@@ -21,45 +21,45 @@ int main ()
 //    cout <<"size of \" "<< filename;
 //    cout <<" \" is "<< (m-l)<<" bytes.\n";
 
-	////µ±Ç°¹¤×÷Â·¾¶,µ±Ç°Ä£¿éÂ·¾¶
-	///*GetCurrentDirectory·µ»Øµ±Ç°½ø³ÌµÄµ±Ç°Ä¿Â¼£¬²¢²»Ò»¶¨·µ»ØÄãµÄexeÓ¦ÓÃ³ÌĞòµÄÄ¿Â¼¡£
-	//Èç¹ûÄãÔÚÓ¦ÓÃ³ÌĞòÖĞµ÷ÓÃÁË´ò¿ªÎÄ¼ş¶Ô»°¿ò£¬ÄãÑ¡ÔñÁËÒ»¸öÎÄ¼ş£¬ÄÇÃ´£¬Õâ¸öÎÄ¼şËùÔÚµÄ
-	//Ä¿Â¼¾Í³ÉÁËµ±Ç°½ø³ÌµÄµ±Ç°Ä¿Â¼ÁË¡£*/
+	////å½“å‰å·¥ä½œè·¯å¾„,å½“å‰æ¨¡å—è·¯å¾„
+	///*GetCurrentDirectoryè¿”å›å½“å‰è¿›ç¨‹çš„å½“å‰ç›®å½•ï¼Œå¹¶ä¸ä¸€å®šè¿”å›ä½ çš„exeåº”ç”¨ç¨‹åºçš„ç›®å½•ã€‚
+	//å¦‚æœä½ åœ¨åº”ç”¨ç¨‹åºä¸­è°ƒç”¨äº†æ‰“å¼€æ–‡ä»¶å¯¹è¯æ¡†ï¼Œä½ é€‰æ‹©äº†ä¸€ä¸ªæ–‡ä»¶ï¼Œé‚£ä¹ˆï¼Œè¿™ä¸ªæ–‡ä»¶æ‰€åœ¨çš„
+	//ç›®å½•å°±æˆäº†å½“å‰è¿›ç¨‹çš„å½“å‰ç›®å½•äº†ã€‚*/
 	//char buf[1000];
 	//int i = 1000;
-	//GetCurrentDirectory(1000, buf);  //µÃµ½µ±Ç°¹¤×÷Â·¾¶  
+	//GetCurrentDirectory(1000, buf);  //å¾—åˆ°å½“å‰å·¥ä½œè·¯å¾„  
 	//cout << buf << endl;
 	//char strModule[256];
-	//GetModuleFileName(NULL, strModule, 256); //µÃµ½µ±Ç°Ä£¿éÂ·¾¶  
+	//GetModuleFileName(NULL, strModule, 256); //å¾—åˆ°å½“å‰æ¨¡å—è·¯å¾„  
 	//cout << strModule << endl;
 	//string a;
 	//a.assign(buf);
 	//cout << a << endl;
-	//a.append("//..//");     //ÉèÖÃÎªµ±Ç°¹¤×÷Â·¾¶Îªµ±Ê±µÄÉÏÒ»¼¶  
+	//a.append("//..//");     //è®¾ç½®ä¸ºå½“å‰å·¥ä½œè·¯å¾„ä¸ºå½“æ—¶çš„ä¸Šä¸€çº§  
 	////a=a+"..//";  
-	//SetCurrentDirectory(a.c_str());  //ÉèÖÃ  
+	//SetCurrentDirectory(a.c_str());  //è®¾ç½®  
 	//GetCurrentDirectory(1000, buf);
 	//cout << buf << endl;
 
-//	string str1("sophia is a good girl!");//ÓÃ³£Á¿×Ö·û´®¸³Öµ¡£
+//	string str1("sophia is a good girl!");//ç”¨å¸¸é‡å­—ç¬¦ä¸²èµ‹å€¼ã€‚
 //	string str2;
 //	string str3;
 //	string str4;
 //	string str5;
-//	str2.assign(str1);//Ö±½ÓÓÃÁíÒ»¸ö×Ö·û´®¸³Öµ.
-//	str3.assign("sophia is a good girl!", 8);//ÓÃÒ»¸ö×Ö·û´®µÄÇ°Ò»¶Î×Ó´®¸³Öµ;
-//	str4.assign(str1, 2, 10);//ÓÃÁíÒ»¸ö×Ö·û´®µÄÒ»¸ö×Ó´®¸³Öµ
-//	str5.assign(10, 'c');//ÓÃ¼¸¸öÏàÍ¬µÄ×Ö·û,¸³Öµ.
+//	str2.assign(str1);//ç›´æ¥ç”¨å¦ä¸€ä¸ªå­—ç¬¦ä¸²èµ‹å€¼.
+//	str3.assign("sophia is a good girl!", 8);//ç”¨ä¸€ä¸ªå­—ç¬¦ä¸²çš„å‰ä¸€æ®µå­ä¸²èµ‹å€¼;
+//	str4.assign(str1, 2, 10);//ç”¨å¦ä¸€ä¸ªå­—ç¬¦ä¸²çš„ä¸€ä¸ªå­ä¸²èµ‹å€¼
+//	str5.assign(10, 'c');//ç”¨å‡ ä¸ªç›¸åŒçš„å­—ç¬¦,èµ‹å€¼.
 //	cout << "str1=  " << str1 << endl;
 //	cout << "str2=  " << str2 << endl;
 //	cout << "str3=  " << str3 << endl;
 //	cout << "str4=  " << str4 << endl;
 //	cout << "str5=  " << str5 << endl;
 
-	/*cinÍ¨¹ıÊ¹ÓÃ¿Õ°×£¨¿Õ¸ñ¡¢ÖÆ±í·ûºÍ»»ĞĞ·û£©À´¶¨×Ö·û´®µÄ½ç¡£ÕâÒâÎ¶×ÅcinÔÚ¶ÁÈ¡
-	×Ö·ûÊı×éÊäÈëÊ±Ö»¶ÁÈ¡Ò»¸öµ¥´Ê£¬¶ÁÈ¡¸Ãµ¥´Êºó£¬cin½«¸Ã×Ö·û´®·ÅÒ»Êı×éÖĞ£¬²¢×Ô¶¯
-	½áÎ²Ìí¼Ó¿Õ×Ö·û¡£ÁíÍâ£¬cinÒ²Ã»ÓĞºÜºÃµÄ¿Ø¼şÊäÈëµÄ×Ö·ûÊı£¬¼´ÊäÈë×Ö·ûÊı´óÓÚÊı×é
-	´óĞ¡µÄÇé¿öÃ»ÓĞ´¦Àí¡£*/
+	/*ciné€šè¿‡ä½¿ç”¨ç©ºç™½ï¼ˆç©ºæ ¼ã€åˆ¶è¡¨ç¬¦å’Œæ¢è¡Œç¬¦ï¼‰æ¥å®šå­—ç¬¦ä¸²çš„ç•Œã€‚è¿™æ„å‘³ç€cinåœ¨è¯»å–
+	å­—ç¬¦æ•°ç»„è¾“å…¥æ—¶åªè¯»å–ä¸€ä¸ªå•è¯ï¼Œè¯»å–è¯¥å•è¯åï¼Œcinå°†è¯¥å­—ç¬¦ä¸²æ”¾ä¸€æ•°ç»„ä¸­ï¼Œå¹¶è‡ªåŠ¨
+	ç»“å°¾æ·»åŠ ç©ºå­—ç¬¦ã€‚å¦å¤–ï¼Œcinä¹Ÿæ²¡æœ‰å¾ˆå¥½çš„æ§ä»¶è¾“å…¥çš„å­—ç¬¦æ•°ï¼Œå³è¾“å…¥å­—ç¬¦æ•°å¤§äºæ•°ç»„
+	å¤§å°çš„æƒ…å†µæ²¡æœ‰å¤„ç†ã€‚*/
 	//const int size = 20;
 	//char name[size];
 	//char pl[size];//program language  
@@ -68,31 +68,31 @@ int main ()
 	//cout << "Enter your favorite program language:";
 	//cin >> pl;
 	//cout << "Hello " << name << ", your favorite program language is " << pl << endl;
-	/*cin.getline()º¯Êı¶ÁÈ¡ÕûĞĞ£¬ËüÊ¹ÓÃÍ¨¹ı»Ø³µ¼üÊäÈëµÄ»»ĞĞ·ûÀ´È·¶¨ÊäÈë½áÎ²¡£¸Ãº¯ÊıÓĞ
-	Á½¸ö²ÎÊı¡£µÚÒ»¸ö²ÎÊıÊÇÓÃÀ´´æ´¢ÊäÈëĞĞµÄÊı×éµÄÃû³Æ£¬µÚ¶ş¸ö²ÎÊıÊÇÒª¶ÁÈ¡µÄ×Ö·ûÊı£¨°üÀ¨
-	¿Õ×Ö·û£©£¬cin.getline()³ÉÔ±º¯ÊıÔÚ¶ÁÈ¡Ö¸¶¨ÊıÄ¿µÄ×Ö·û»òÓöµ½»»ĞĞ·ûÊ±Í£Ö¹¶ÁÈ¡,ĞèÒª×¢Òâ
-	µÄÊÇ£¬cin.getline()¶ªÆúÁË»»ĞĞ·û¡£*/
+	/*cin.getline()å‡½æ•°è¯»å–æ•´è¡Œï¼Œå®ƒä½¿ç”¨é€šè¿‡å›è½¦é”®è¾“å…¥çš„æ¢è¡Œç¬¦æ¥ç¡®å®šè¾“å…¥ç»“å°¾ã€‚è¯¥å‡½æ•°æœ‰
+	ä¸¤ä¸ªå‚æ•°ã€‚ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯ç”¨æ¥å­˜å‚¨è¾“å…¥è¡Œçš„æ•°ç»„çš„åç§°ï¼Œç¬¬äºŒä¸ªå‚æ•°æ˜¯è¦è¯»å–çš„å­—ç¬¦æ•°ï¼ˆåŒ…æ‹¬
+	ç©ºå­—ç¬¦ï¼‰ï¼Œcin.getline()æˆå‘˜å‡½æ•°åœ¨è¯»å–æŒ‡å®šæ•°ç›®çš„å­—ç¬¦æˆ–é‡åˆ°æ¢è¡Œç¬¦æ—¶åœæ­¢è¯»å–,éœ€è¦æ³¨æ„
+	çš„æ˜¯ï¼Œcin.getline()ä¸¢å¼ƒäº†æ¢è¡Œç¬¦ã€‚*/
 	/*cout << "Enter your name:";
 	cin.getline(name, size);
 	cout << "Enter your favorite program language:";
 	cin.getline(pl, size);
 	cout << "Hello " << name << ", your favorite program language is " << pl << endl;*/
-	/*get()º¯ÊıÓĞºÃ¼¸ÖÖ±äÌå£¬ÆäÖĞÓĞÒ»ÖÖÓëgetline()ÍêÈ«ÏàÍ¬µÄ²ÎÊı£¬µ«¸Ãº¯Êı²»ÔÙ¶ÁÈ¡²¢¶ª
-	Æú»»ĞĞ·û(²»¶ÁÈ¡ÒâÎ¶×Å»»ĞĞ·û»¹ÔÚÊäÈë¶ÓÁĞÖĞ)*/
+	/*get()å‡½æ•°æœ‰å¥½å‡ ç§å˜ä½“ï¼Œå…¶ä¸­æœ‰ä¸€ç§ä¸getline()å®Œå…¨ç›¸åŒçš„å‚æ•°ï¼Œä½†è¯¥å‡½æ•°ä¸å†è¯»å–å¹¶ä¸¢
+	å¼ƒæ¢è¡Œç¬¦(ä¸è¯»å–æ„å‘³ç€æ¢è¡Œç¬¦è¿˜åœ¨è¾“å…¥é˜Ÿåˆ—ä¸­)*/
 	/*cout << "Enter your name:";
 	cin.get(name, size);
 	cout << "Enter your favorite program language:";
 	cin.get(pl, size);
 	cout << "Hello " << name << ", your favorite program language is " << pl << endl;*/
-	/*·¢ÏÖ²¢²»ºÃÊ¹£¬Ô­ÒòÊÇÓÉÓÚµÚÒ»´Îµ÷ÓÃºó£¬»»ĞĞ·û½«Áô´æÊäÈë¶ÓÁĞÖĞ£¬Òò´ËµÚ¶ş´Îµ÷ÓÃÊ±¿´
-	µ½µÄµÚÒ»¸ö×Ö·ûÎª»»ĞĞ·û¡£Òò´ËgetÈÏÎªÒÑ¾­µ½´ïĞĞÎ²£¬¶øÃ»ÓĞ·¢ÏÖÈÎºÎ¿É¶ÁÈ¡µÄÄÚÈİ¡£get()
-	£¨²»´øÈÎºÎ²ÎÊıµÄ±äÌå£©¿ÉÒÔ¶ÁÈ¡ÏÂÒ»¸ö×Ö·û£¨°üÀ¨»»ĞĞ·û£©¡£*/
+	/*å‘ç°å¹¶ä¸å¥½ä½¿ï¼ŒåŸå› æ˜¯ç”±äºç¬¬ä¸€æ¬¡è°ƒç”¨åï¼Œæ¢è¡Œç¬¦å°†ç•™å­˜è¾“å…¥é˜Ÿåˆ—ä¸­ï¼Œå› æ­¤ç¬¬äºŒæ¬¡è°ƒç”¨æ—¶çœ‹
+	åˆ°çš„ç¬¬ä¸€ä¸ªå­—ç¬¦ä¸ºæ¢è¡Œç¬¦ã€‚å› æ­¤getè®¤ä¸ºå·²ç»åˆ°è¾¾è¡Œå°¾ï¼Œè€Œæ²¡æœ‰å‘ç°ä»»ä½•å¯è¯»å–çš„å†…å®¹ã€‚get()
+	ï¼ˆä¸å¸¦ä»»ä½•å‚æ•°çš„å˜ä½“ï¼‰å¯ä»¥è¯»å–ä¸‹ä¸€ä¸ªå­—ç¬¦ï¼ˆåŒ…æ‹¬æ¢è¡Œç¬¦ï¼‰ã€‚*/
 	/*cout << "Enter your name:";
 	cin.get(name, size).get();
 	cout << "Enter your favorite program language:";
 	cin.get(pl, size).get();
 	cout << "Hello " << name << ", your favorite program language is " << pl << endl;*/
-	/*»ìºÏÊäÈë×Ö·û´®ºÍÊı×Ö*/
+	/*æ··åˆè¾“å…¥å­—ç¬¦ä¸²å’Œæ•°å­—*/
 	/*int age = 0;
 	char address[size] = { 0 };
 	cout << "Enter your age:";
@@ -102,16 +102,16 @@ int main ()
 	cin.getline(address, size);
 	cout << "your age is " << age << ", your address is " << address << endl;*/
 
-	//c++ÖĞ×Ö·û´®Êı×éºÍ×Ö·û´®Ö®¼äµÄ×ª»¯¡£
+	//c++ä¸­å­—ç¬¦ä¸²æ•°ç»„å’Œå­—ç¬¦ä¸²ä¹‹é—´çš„è½¬åŒ–ã€‚
 	//string str0 = "sophia is a good girl.";
-	//const char *str1 = str0.c_str();//string.c_str()·µ»ØµÄÊÇconst charÀàĞÍ
+	//const char *str1 = str0.c_str();//string.c_str()è¿”å›çš„æ˜¯const charç±»å‹
 	//char str2[100]="xinwen is also a good girl.";
 	//string str3 = str2;
 	//cout << "str0=  " << str0 << endl;
 	//cout << "str1=  " << str1 << endl;
 	//cout << "str2=  " << str2 << endl;
 	//cout << "str3=  " << str3 << endl;
-	/*CStringÀàÊÇMFCÖĞÖØĞÂ¶¨ÒåµÄ×Ö·û´®Àà£¬Ìá¹©ÁË¸ü¶àµÄ×Ö·û´®²Ù×÷´¦Àí¹¦ÄÜ¡£*/
+	/*CStringç±»æ˜¯MFCä¸­é‡æ–°å®šä¹‰çš„å­—ç¬¦ä¸²ç±»ï¼Œæä¾›äº†æ›´å¤šçš„å­—ç¬¦ä¸²æ“ä½œå¤„ç†åŠŸèƒ½ã€‚*/
 	//string->CString
 	/*CString cstr;
 	string str = "sophia is a good girl.";
@@ -124,12 +124,12 @@ int main ()
 	cout << "str0=  " << str0 << endl;
 	cout << "str1=  " << str1 << endl;*/
 	
-	//´Ó¼üÅÌ¸øEOF½áÊø±êÖ¾£¬½áÊø³ÌĞò¡£
+	//ä»é”®ç›˜ç»™EOFç»“æŸæ ‡å¿—ï¼Œç»“æŸç¨‹åºã€‚
 	/*int c;
 	do{
-		printf("ÇëÊäÈëÎÄµµµÄ½áÎ²±êÖ¾");
+		printf("è¯·è¾“å…¥æ–‡æ¡£çš„ç»“å°¾æ ‡å¿—");
 	} while ((c = getchar()) != EOF);
-	cout<<"ÒÑµÃµ½ÎÄµµ½áÊø±êÖ¾"<<endl;*/
+	cout<<"å·²å¾—åˆ°æ–‡æ¡£ç»“æŸæ ‡å¿—"<<endl;*/
 
 	system("Pause");
     return 0;

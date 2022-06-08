@@ -1,6 +1,3 @@
-/* 	
-���ܣ�ͼ���ʽ��ת��
-*/
 #include <cv.h>
 #include <highgui.h>
 #include <stdio.h>

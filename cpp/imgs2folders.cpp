@@ -4,16 +4,16 @@
 //Email: xinwen618@gmail.com
 //Blog: https://sophia-hxw.github.io/
 //*****************************************************************************
-//Function: ����ǰ�ļ����еĴ�����.jpg�ļ��ֱ�ŵ���ͬ�ļ�����
-//Input:   ��dos��ʾ�£�������Ҫ��װ��ЩͼƬ���ļ��еĸ���
-//Output:  ��ͬ�ļ��У���ͬ��ͼƬ�Ѿ��ֱ��������
+//Function: 将当前文件夹中的大量的.jpg文件分别放到不同文件夹中
+//Input:   在dos提示下，输入想要分装这些图片的文件夹的个数
+//Output:  不同文件夹，不同的图片已经分别放入其中
 //*****************************************************************************
-//�Ľ���ÿ���ƶ�һ���ļ�������dos�����������Ҫ�Ľ���
-//	ֻ�ܶ�.jpg�ļ�������û�����û�����Ҫ�޸ĵ��ļ���ʽ����ѡ��
-//Usage��
-//#1�������ֵ�ͼƬ�Ϳ�ִ���ļ�countfiles.exe����ͬһ�ļ����£�
-//#2����dos��ʾ�£�������Ҫ��װ��ЩͼƬ���ļ��еĸ�����
-//#3���س����ɽ�����.jpg�ļ�������ƽ���ַ��ڲ�ͬ�ļ��С�
+//改进：每次移动一个文件都会在dos中有输出，需要改进；
+//	只能对.jpg文件处理，没有让用户对需要修改的文件格式进行选择。
+//Usage：
+//#1，将带分的图片和可执行文件countfiles.exe置于同一文件夹下；
+//#2，在dos提示下，输入想要分装这些图片的文件夹的个数；
+//#3，回车即可将大量.jpg文件尽可能平均分放于不同文件夹。
 //*****************************************************************************
 
 #include <stdio.h>
@@ -29,25 +29,25 @@ using namespace std;
 
 int main()
 {
-	//��ǰ�ļ�����
+	//当前文件数量
 	system("dir /b /a-d .\\*.jpg | find /v /c \" \">CountNum.txt ");
 	ifstream fin("CountNum.txt");
 	int filenumber = 0;
 	fin >> filenumber;
-	cout <<"\n ��ǰ�ļ�����filenumber=  "<<filenumber<< endl;
+	cout <<"\n 当前文件数量filenumber=  "<<filenumber<< endl;
 
-	//Ӧ�û��ֵ��ļ�������
+	//应该划分的文件夹数量
 	int foldernumber;
-	cout << "�������ļ��и���:" << endl;
+	cout << "请输入文件夹个数:" << endl;
 	cin >> foldernumber;
-	cout << "\n �ļ��и���foldernumber=  " << foldernumber << endl;
+	cout << "\n 文件夹个数foldernumber=  " << foldernumber << endl;
 
-	//ÿ���ļ����е��ļ�����
+	//每个文件夹中的文件个数
 	int filePerfolder;
 	filePerfolder = filenumber / foldernumber;
-	cout << "\n ÿ���ļ����е��ļ�����filePerfolder=  " << filePerfolder << endl;
+	cout << "\n 每个文件夹中的文件个数filePerfolder=  " << filePerfolder << endl;
 
-	//�����ļ�������
+	//处理文件夹名字
 	vector<string> foldername;
 	if (foldernumber != 0){
 		for (int i = 0; i < foldernumber ; i++){
@@ -57,16 +57,16 @@ int main()
 			string order = "md " + str;
 			foldername.push_back(str);		
 			system(order.c_str());								//system("md picture-1");
-//			cout << "\n �ļ�������= " << foldername[i] << endl;
-//			cout << "\n �½��ļ�������= " << order << endl;
+//			cout << "\n 文件夹名字= " << foldername[i] << endl;
+//			cout << "\n 新建文件夹命令= " << order << endl;
 		}
 	}
 
 
-	//����ÿ���ļ�����
+	//读入每个文件名字
 	system("DIR *.jpg / B >LIST.TXT ");
 
-	//�����ļ�����
+	//处理文件名字
 	ifstream in("LIST.TXT");
 	string line;
 	vector<string> fileNames;
@@ -75,13 +75,13 @@ int main()
 		fileNames.push_back(line);
 	}	
 
-	//�����ļ�����Ӧ���ļ���ȥ
+	//划分文件到相应的文件夹去
 	int folderindex = 0;
 	for (int i = 0; i < filenumber; i++){
 		if ((i % filePerfolder) == 0 & (i!=0))
 			folderindex += 1;
 
-		if (folderindex >= (foldernumber-1)){							/*���һ���ļ��У�Ҫʣ�������ļ�*/
+		if (folderindex >= (foldernumber-1)){							/*最后一个文件夹，要剩下所有文件*/
 			string forcache;
 			forcache = "move " + fileNames[i] + " " + foldername[folderindex-1]+" >nul";
 			system(forcache.c_str());									//	system("move 000753116_000006.jpg picture-1");

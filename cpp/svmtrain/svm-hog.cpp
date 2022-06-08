@@ -63,7 +63,7 @@ int main()  {
 	int num_sample = bus_total_num + car_total_num + lorry_total_num + van_total_num;
 	
 	Mat sample_feature_mat(num_sample, 900, CV_32FC1);//900=(win_height/8-1)*(win_width/8-1)*(2*2)*9;
-	Mat sample_class_mat(num_sample, 1, CV_32SC1);    //Ñù±¾Àà±ğ 
+	Mat sample_class_mat(num_sample, 1, CV_32SC1);    //æ ·æœ¬ç±»åˆ« 
 
 	//void computeHOG(int label, int sampleIndex, int bus_total_num, string path, vector<string>& name, Mat& sample_feature_mat, Mat& sample_class_mat)
 	computeHOG(5, 0, bus_total_num, bus_dirname, bus_name, sample_feature_mat, sample_class_mat);
@@ -116,7 +116,7 @@ int GetPicNameFromTxt(string filename, vector<string>& img_name){
 }
 
 void computeHOG(int label, int sampleIndex, int total_num, string path, vector<string>& name, Mat& sample_feature_mat, Mat& sample_class_mat){
-	//¶ÔÍ¼Æ¬Ñ­»· 
+	//å¯¹å›¾ç‰‡å¾ªç¯ 
 	for (string::size_type i = 0; i < total_num; i++)
 	{
 		string img_path = path + name[i];
@@ -130,18 +130,18 @@ void computeHOG(int label, int sampleIndex, int total_num, string path, vector<s
 		Mat train_img;
 		resize(orig_img, train_img, Size(ImgWidht, ImgHeight));
 
-		//ÉêÃ÷ÃèÊö×Ó£¬Ã¿¸ö²ÎÊıµÄº¬Òå¼û±Ê¼Ç
+		//ç”³æ˜æè¿°å­ï¼Œæ¯ä¸ªå‚æ•°çš„å«ä¹‰è§ç¬”è®°
 		HOGDescriptor hog(Size(ImgWidht, ImgHeight), Size(16, 16), Size(8, 8), Size(8, 8), 9);
 
-		//ÃèÊö×ÓÉêÇëÄÚ´æ²¢¼ÆËã
+		//æè¿°å­ç”³è¯·å†…å­˜å¹¶è®¡ç®—
 		vector<float> descriptors;
 		hog.compute(train_img, descriptors, Size(0, 0), Size(0, 0));
 
-		//Ã¿¸ösampleµÄhogÌØÕ÷¸öÊı    
+		//æ¯ä¸ªsampleçš„hogç‰¹å¾ä¸ªæ•°    
 		for (vector<float>::size_type k = 0; k != descriptors.size(); k++)
 			sample_feature_mat.at<float>(sampleIndex + i, k) = descriptors[k];
 
-		//Àà±ğ´¦Àí¼°¶Ë¿ÚÌáÊ¾ĞÅÏ¢
+		//ç±»åˆ«å¤„ç†åŠç«¯å£æç¤ºä¿¡æ¯
 		sample_class_mat.at<int>(sampleIndex + i, 0) = label;
 	}
 }
@@ -150,24 +150,24 @@ void testHOG(int label, int total_num, string path, vector<string>& name, Ptr<ml
 	char line[512];
 
 	for (string::size_type j = 0; j <total_num; j++){
-		//¶ÁÈëÍ¼Ïñ
+		//è¯»å…¥å›¾åƒ
 		string img_path = path + name[j];
 		Mat test = imread(img_path.c_str(), 0);
 
-		//Òª¸ã³ÉÍ¬ÑùµÄ´óĞ¡²Å¿ÉÒÔ¼ì²âµ½
+		//è¦ææˆåŒæ ·çš„å¤§å°æ‰å¯ä»¥æ£€æµ‹åˆ°
 		Mat testImg;
 		resize(test, testImg, Size(ImgWidht, ImgHeight));
 
-		//ÉêÃ÷ÃèÊö×Ó£¬Ã¿¸ö²ÎÊıµÄº¬Òå¼û±Ê¼Ç
+		//ç”³æ˜æè¿°å­ï¼Œæ¯ä¸ªå‚æ•°çš„å«ä¹‰è§ç¬”è®°
 		HOGDescriptor hog(Size(ImgWidht, ImgHeight), Size(16, 16), Size(8, 8), Size(8, 8), 9);
 
-		//½á¹ûÊı×é
+		//ç»“æœæ•°ç»„
 		vector<float> descriptors;
-		//µ÷ÓÃ¼ÆËãº¯Êı¿ªÊ¼¼ÆËã
+		//è°ƒç”¨è®¡ç®—å‡½æ•°å¼€å§‹è®¡ç®—
 		hog.compute(testImg, descriptors, Size(1, 1), Size(0, 0));
 
 		Mat SVMtrainMat = Mat::zeros(1, 900, CV_32FC1); //900=(win_height/8-1)*(win_width/8-1)*(2*2)*9;900=descriptors.size();
-		//Ã¿¸ösampleµÄhogÌØÕ÷¸öÊı    
+		//æ¯ä¸ªsampleçš„hogç‰¹å¾ä¸ªæ•°    
 		for (vector<float>::size_type k = 0; k != descriptors.size(); k++)
 			SVMtrainMat.at<float>(0, k) = descriptors[k];
 

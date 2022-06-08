@@ -4,16 +4,16 @@
 //Email: xinwen618@gmail.com
 //Blog: https://sophia-hxw.github.io/
 //*****************************************************************************
-//Function: ����ǰ�ļ����еĴ�����.jpg�ļ��ֱ�ŵ���ͬ�ļ�����
-//Input:   ��dos��ʾ�£�������Ҫ��װ��ЩͼƬ���ļ��еĸ���
-//Output:  ��ͬ�ļ��У���ͬ��ͼƬ�Ѿ��ֱ��������
+//Function: 将当前文件夹中的大量的.jpg文件分别放到不同文件夹中
+//Input:   在dos提示下，输入想要分装这些图片的文件夹的个数
+//Output:  不同文件夹，不同的图片已经分别放入其中
 //*****************************************************************************
-//�Ľ���ֻ�ܶ�.jpg�ļ�������û�����û�����Ҫ�޸ĵ��ļ���ʽ����ѡ��
-//	������boost��Ķ��̴߳���������ٷ�ͼ�Ĺ��̡�
-//Usage��
-//#1�������ֵ�ͼƬ�Ϳ�ִ���ļ�countfiles.exe����ͬһ�ļ����£�
-//#2����dos��ʾ�£�������Ҫ��װ��ЩͼƬ���ļ��еĸ�����
-//#3���س����ɽ�����.jpg�ļ�������ƽ���ַ��ڲ�ͬ�ļ��С�
+//改进：只能对.jpg文件处理，没有让用户对需要修改的文件格式进行选择。
+//	添加了boost库的多线程处理，会加速分图的过程。
+//Usage：
+//#1，将带分的图片和可执行文件countfiles.exe置于同一文件夹下；
+//#2，在dos提示下，输入想要分装这些图片的文件夹的个数；
+//#3，回车即可将大量.jpg文件尽可能平均分放于不同文件夹。
 //*****************************************************************************
 
 #include <stdio.h>
@@ -41,18 +41,18 @@ int main()
 	ifstream fin("CountNum.txt");
 	int filenumber = 0;
 	fin >> filenumber;
-	cout <<"\n ��ǰ�ļ�����filenumber=  "<<filenumber<< endl;
+	cout <<"\n 当前文件数量filenumber=  "<<filenumber<< endl;
 
 
 	int foldernumber;
-	cout << "�������ļ��и���:" << endl;
+	cout << "请输入文件夹个数:" << endl;
 	cin >> foldernumber;
-	cout << "\n �ļ��и���foldernumber=  " << foldernumber << endl;
+	cout << "\n 文件夹个数foldernumber=  " << foldernumber << endl;
 
 
 	int filePerfolder;
 	filePerfolder = filenumber / foldernumber;
-	cout << "\n ÿ���ļ����е��ļ�����filePerfolder=  " << filePerfolder << endl;
+	cout << "\n 每个文件夹中的文件个数filePerfolder=  " << filePerfolder << endl;
 
 
 	vector<string> foldername;
@@ -89,7 +89,7 @@ int main()
 				FileNameFunc.push_back(fileNames[beginNum+j]);
 			threads.push_back(thread(movefile, FolderNameFunc, FileNameFunc));
 		}
-		else{//���һ���ļ���
+		else{//最后一个文件夹
 			vector<string> FileNameFunc;
 			int beginNum = i*filePerfolder;
 			int NewNum = filenumber - (foldernumber - 1)*filePerfolder;

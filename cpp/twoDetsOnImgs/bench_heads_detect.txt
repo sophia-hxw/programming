@@ -1,0 +1,10 @@
+081401922_detected.jpg	0
+081402828_detected.jpg	0
+081404359_detected.jpg	1	806  156  56  56
+081405123_detected.jpg	0
+081405518_detected.jpg	1	1636  1030  112  112
+081406123_detected.jpg	0
+081408261_detected.jpg	1	188  962  180  180
+081410595_detected.jpg	0
+081411620_detected.jpg	0
+081413518_detected.jpg	2	1462  724  100  100	1646  732  100  100

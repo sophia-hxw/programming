@@ -1,0 +1,47 @@
+
+ 
+ 1-col: Name of file 	 2-col: number of heads 	 3-col: [x,y,width,height] 
+
+113859534_detected.jpg	5	812  582  117  117	666  346  74  74	618  521  84  84	425  245  65  65	416  446  94  94
+113901485_detected.jpg	3	740  392  84  84	341  392  84  84	421  445  168  168
+ 
+ 1-col: Name of file 	 2-col: number of heads 	 3-col: [x,y,width,height] 
+
+113859534_detected.jpg	5	812  582  117  117	666  346  74  74	618  521  84  84	425  245  65  65	416  446  94  94
+113901485_detected.jpg	3	740  392  84  84	341  392  84  84	421  445  168  168
+ 
+ 1-col: Name of file 	 2-col: number of heads 	 3-col: [x,y,width,height] 
+
+113859534_detected.jpg	5	812  582  117  117	666  346  74  74	618  521  84  84	425  245  65  65	416  446  94  94
+113901485_detected.jpg	3	740  392  84  84	341  392  84  84	421  445  168  168
+ 
+ 1-col: Name of file 	 2-col: number of heads 	 3-col: [x,y,width,height] 
+
+ 
+ 1-col: Name of file 	 2-col: number of heads 	 3-col: [x,y,width,height] 
+
+113859534_detected.jpg	5	812  582  117  117	666  346  74  74	618  521  84  84	425  245  65  65	416  446  94  94
+113901485_detected.jpg	3	740  392  84  84	341  392  84  84	421  445  168  168
+ 
+ 1-col: Name of file 	 2-col: number of heads 	 3-col: [x,y,width,height] 
+
+113859534_detected.jpg	5	812  582  117  117	666  346  74  74	618  521  84  84	425  245  65  65	416  446  94  94
+113901485_detected.jpg	3	740  392  84  84	341  392  84  84	421  445  168  168
+ 
+ 1-col: Name of file 	 2-col: number of heads 	 3-col: [x,y,width,height] 
+
+112448249_111_detected.jpg	0
+113859534_detected.jpg	5	812  582  117  117	666  346  74  74	618  521  84  84	425  245  65  65	416  446  94  94
+113901485_detected.jpg	3	740  392  84  84	341  392  84  84	421  445  168  168
+ 
+ 1-col: Name of file 	 2-col: number of heads 	 3-col: [x,y,width,height] 
+
+112448249_111_detected.jpg	0
+113859534_detected.jpg	5	812  582  117  117	666  346  74  74	618  521  84  84	425  245  65  65	416  446  94  94
+113901485_detected.jpg	3	740  392  84  84	341  392  84  84	421  445  168  168
+ 
+ 1-col: Name of file 	 2-col: number of heads 	 3-col: [x,y,width,height] 
+
+112448249_111_detected.jpg	0
+113859534_detected.jpg	5	812  582  117  117	666  346  74  74	618  521  84  84	425  245  65  65	416  446  94  94
+113901485_detected.jpg	3	740  392  84  84	341  392  84  84	421  445  168  168
